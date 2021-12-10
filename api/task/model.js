@@ -1,1 +1,5 @@
-// build your `Task` model here
+function get(){
+    return Promise.resolve(`awesome stuff`)
+}
+
+module.exports = {get}

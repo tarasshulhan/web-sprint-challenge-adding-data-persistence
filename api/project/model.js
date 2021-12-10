@@ -1,1 +1,5 @@
-// build your `Project` model here
+function get(){
+    return Promise.resolve(`awesome stuff`)
+}
+
+module.exports = {get}
