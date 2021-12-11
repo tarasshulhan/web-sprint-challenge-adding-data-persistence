@@ -1,5 +1,16 @@
+const db = require('../../data/dbConfig')
+
 function get(){
-    return Promise.resolve(`awesome stuff`)
+    return db('projects')
 }
 
-module.exports = {get}
+const getById = (id) => {
+  return db('projects').where('project_id', id).first()
+}
+
+async function create(project) {
+    await db('projects').insert(project)
+    return project
+  }
+
+module.exports = {get, getById, create}

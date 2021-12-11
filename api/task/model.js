@@ -1,5 +1,12 @@
+const db = require('../../data/dbConfig')
+
 function get(){
-    return Promise.resolve(`awesome stuff`)
+    return db('tasks')
 }
 
-module.exports = {get}
+async function create(task) {
+    await db('tasks').insert(task)
+    return task
+  }
+
+module.exports = {get, create}
