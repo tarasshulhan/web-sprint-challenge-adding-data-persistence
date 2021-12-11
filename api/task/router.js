@@ -1,6 +1,5 @@
 const router = require('express').Router()
 const Tasks = require("./model")
-const Projects = require("../project/model")
 
 router.get('/', async (req, res, next) => {
     try{
@@ -12,10 +11,6 @@ router.get('/', async (req, res, next) => {
                 return {...task, task_completed: true}
                 }
             })
-            newTasks.forEach(async task =>  {
-                const proj = await Projects.getById(task.project_id)
-                task = {...task, project_name: proj.project_name, project_description: proj.project_description}
-            }) // adds the project name and description to a task, tests still dont pass idk why
             res.status(200).json(newTasks)
     }catch(err){
         next(err)
