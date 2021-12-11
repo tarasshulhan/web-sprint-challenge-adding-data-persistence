@@ -9,8 +9,8 @@ const getById = (id) => {
 }
 
 async function create(project) {
-    await db('projects').insert(project)
-    return project
+    const id = await db('projects').insert(project)
+    return getById(id)
   }
 
 module.exports = {get, getById, create}

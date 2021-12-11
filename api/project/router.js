@@ -28,7 +28,7 @@ router.post('/', (req, res, next) => {
             res.status(200).json({...project, project_completed: false})
         }else{
             res.status(200).json({...project, project_completed: true})
-            } // returns project_completed as boolean in postman, test still not passing
+            }
     })
     .catch(next)
 })
